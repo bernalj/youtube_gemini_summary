@@ -16,13 +16,13 @@ A Firefox extension that summarizes YouTube videos directly from the front page 
 
 ### From Firefox Add-ons Store
 
-1. Visit the [Firefox Add-ons Store page](https://addons.mozilla.org/en-US/firefox/addon/youtube-video-summarizer/)
+1. Visit the [Firefox Add-ons Store page](https://addons.mozilla.org/en-US/firefox/addon/youtube-thumbnail-sumarizer/)
 2. Click "Add to Firefox"
 3. Follow the prompts to complete installation
 
 ### Manual Installation
 
-1. Download the latest release `.zip` file from the [Releases page](https://github.com/yourusername/youtube-gemini-summary/releases)
+1. Download the `.zip` file the top right corner: <> Code > Download ZIP
 2. In Firefox, navigate to `about:addons`
 3. Click the gear icon and select "Install Add-on From File..."
 4. Select the downloaded `.zip` file
@@ -42,7 +42,6 @@ A Firefox extension that summarizes YouTube videos directly from the front page 
 2. Hover over any video thumbnail to see the "Summarize" button
 3. Click the button to generate a summary
 4. The summary will appear as an overlay on the thumbnail
-5. Click anywhere on the summary to dismiss it
 
 ## Configuration Options
 
@@ -89,13 +88,6 @@ The extension provides the following configuration options:
 3. Make changes to the code
 4. Reload the extension to see your changes
 
-### Building for Distribution
-
-1. Zip the extension files:
-   ```
-   zip -r youtube_gemini_summary.zip * -x "*.git*" -x "*.zip"
-   ```
-
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -114,3 +106,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Google's Gemini API for providing the AI summarization capabilities
 - Firefox Add-ons for the extension platform
+- Cline and Claude Sonnet 3.7
