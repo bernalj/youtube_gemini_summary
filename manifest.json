@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "YouTube Video Summarizer",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "description": "Summarizes YouTube videos on hover using Gemini",
     "icons": {
         "16": "icons/icon16.png",
@@ -12,7 +12,7 @@
     "permissions": ["storage", "activeTab", "https://www.youtube.com/*", "https://generativelanguage.googleapis.com/*", "https://*.googleadservices.com/*"],
     "background": {
       "scripts": ["background.js"],
-      "persistent": false
+      "persistent": true
     },
     "browser_action": {
       "default_title": "YouTube Video Summarizer",

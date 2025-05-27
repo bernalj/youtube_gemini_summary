@@ -131,8 +131,35 @@ function handleSummarizeClick(event) {
     return;
   }
   thumb.dataset.summarying = true;
-  // Send summarization request to the background script
-  browser.runtime.sendMessage({action: 'summarize', videoUrl})
+  
+  // Helper function to send messages with retry logic
+  function sendMessageWithRetry(message, maxRetries = 3, delay = 1000) {
+    return new Promise((resolve, reject) => {
+      let attempts = 0;
+      
+      function attempt() {
+        attempts++;
+        console.log(`Attempt ${attempts} to send message to background script`);
+        
+        browser.runtime.sendMessage(message)
+          .then(resolve)
+          .catch(error => {
+            console.error(`Attempt ${attempts} failed:`, error);
+            if (error.message.includes("receiving end does not exist") && attempts < maxRetries) {
+              console.log(`Retrying in ${delay}ms...`);
+              setTimeout(attempt, delay);
+            } else {
+              reject(error);
+            }
+          });
+      }
+      
+      attempt();
+    });
+  }
+  
+  // Send summarization request to the background script with retry logic
+  sendMessageWithRetry({action: 'summarize', videoUrl})
     .then(response => {
       // Process the response from the background script
       if (response && response.success) {
